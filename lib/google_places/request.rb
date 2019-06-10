@@ -1,3 +1,5 @@
+require_relative 'parsers/json_parser'
+
 module GooglePlaces
   # This class performs the queries on the API
   class Request
@@ -7,6 +9,7 @@ module GooglePlaces
 
     include ::HTTParty
     format :json
+    parser JsonParser
 
     NEARBY_SEARCH_URL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'
     DETAILS_URL       = 'https://maps.googleapis.com/maps/api/place/details/json'
